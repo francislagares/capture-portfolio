@@ -10,12 +10,15 @@ const Faq = styled(About)`
   }
 
   h2 {
+    /* prettier-ignore */
     padding-bottom: .2rem;
     font-weight: lighter;
   }
 
   .faq-line {
     width: 100%;
+
+    /* prettier-ignore */
     height: .2rem;
     margin: 2rem 0;
     background: #ccc;
