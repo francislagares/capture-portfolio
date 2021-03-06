@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import { pageAnimation } from '../Animation';
 import { IAward, IMovie } from '../interfaces/Movie';
 import { MovieState } from '../movieState';
 
-const Details = styled.div`
+const Details = styled(motion.div)`
   color: white;
 `;
 const Headlines = styled.div`
@@ -91,7 +93,12 @@ const MovieDetail = (): JSX.Element => {
   return (
     <>
       {movie && (
-        <Details>
+        <Details
+          variants={pageAnimation}
+          initial='hidden'
+          animate='show'
+          exit='exit'
+        >
           <Headlines>
             <h2>{movie?.title}</h2>
             <img src={movie?.mainImg} alt='Movie' />

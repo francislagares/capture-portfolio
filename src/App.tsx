@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import GlobalStyle from './components/GlobalStyle';
 import Nav from './components/Nav';
 import AboutUs from './pages/AboutUs';
@@ -8,12 +9,14 @@ import MovieDetail from './pages/MovieDetail';
 import OurWork from './pages/OurWork';
 
 const App = (): JSX.Element => {
+  const location = useLocation();
+
   return (
     <div className='app'>
       <GlobalStyle />
-      <Router>
+      <AnimatePresence exitBeforeEnter>
         <Nav />
-        <Switch>
+        <Switch location={location} key={location.pathname}>
           <Route path='/' exact>
             <AboutUs />
           </Route>
@@ -27,7 +30,7 @@ const App = (): JSX.Element => {
             <ContactUs />
           </Route>
         </Switch>
-      </Router>
+      </AnimatePresence>
     </div>
   );
 };
