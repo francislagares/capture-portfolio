@@ -14,8 +14,8 @@ const App = (): JSX.Element => {
   return (
     <div className='app'>
       <GlobalStyle />
+      <Nav />
       <AnimatePresence exitBeforeEnter>
-        <Nav />
         <Switch location={location} key={location.pathname}>
           <Route path='/' exact>
             <AboutUs />
