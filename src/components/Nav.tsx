@@ -1,8 +1,12 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
 const Nav = (): JSX.Element => {
+  const { pathname } = useLocation();
+
   return (
     <StyledNav>
       <h1>
@@ -13,12 +17,27 @@ const Nav = (): JSX.Element => {
       <ul>
         <li>
           <Link to='/'>1. About Us</Link>
+          <Line
+            transition={{ duration: 0.75 }}
+            initial={{ width: '0%' }}
+            animate={{ width: pathname === '/' ? '50%' : '0%' }}
+          />
         </li>
         <li>
           <Link to='/work'>2. Our Work</Link>
+          <Line
+            transition={{ duration: 0.75 }}
+            initial={{ width: '0%' }}
+            animate={{ width: pathname === '/work' ? '50%' : '0%' }}
+          />
         </li>
         <li>
           <Link to='/contact'>3. Contact Us</Link>
+          <Line
+            transition={{ duration: 0.75 }}
+            initial={{ width: '0%' }}
+            animate={{ width: pathname === '/contact' ? '50%' : '0%' }}
+          />
         </li>
       </ul>
     </StyledNav>
@@ -48,7 +67,7 @@ const StyledNav = styled.nav`
   }
 
   #logo {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-family: 'Lobster', cursive;
     font-weight: lighter;
   }
@@ -64,7 +83,7 @@ const StyledNav = styled.nav`
 
     #logo {
       display: inline-block;
-      margin: 1rem;
+      margin: 2rem;
     }
 
     ul {
@@ -76,6 +95,21 @@ const StyledNav = styled.nav`
         padding: 0;
       }
     }
+  }
+`;
+
+const Line = styled(motion.div)`
+  bottom: -80%;
+  left: 60%;
+  width: 0%;
+
+  /* prettier-ignore */
+  height: .3rem;
+  background: #23d997;
+  position: absolute;
+
+  @media screen and (max-width: 1300px) {
+    left: 0%;
   }
 `;
 
