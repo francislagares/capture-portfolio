@@ -2,6 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
+const Nav = (): JSX.Element => {
+  return (
+    <StyledNav>
+      <h1>
+        <Link id='logo' to='/'>
+          Capture
+        </Link>
+      </h1>
+      <ul>
+        <li>
+          <Link to='/'>1. About Us</Link>
+        </li>
+        <li>
+          <Link to='/work'>2. Our Work</Link>
+        </li>
+        <li>
+          <Link to='/contact'>3. Contact Us</Link>
+        </li>
+      </ul>
+    </StyledNav>
+  );
+};
+
 const StyledNav = styled.nav`
   top: 0;
   margin: auto;
@@ -34,29 +57,26 @@ const StyledNav = styled.nav`
     padding-left: 10rem;
     position: relative;
   }
-`;
 
-const Nav = (): JSX.Element => {
-  return (
-    <StyledNav>
-      <h1>
-        <Link id='logo' to='/'>
-          Capture
-        </Link>
-      </h1>
-      <ul>
-        <li>
-          <Link to='/'>1. About Us</Link>
-        </li>
-        <li>
-          <Link to='/work'>2. Our Work</Link>
-        </li>
-        <li>
-          <Link to='/contact'>3. Contact Us</Link>
-        </li>
-      </ul>
-    </StyledNav>
-  );
-};
+  @media screen and (max-width: 1300px) {
+    flex-direction: column;
+    padding: 2rem 1rem;
+
+    #logo {
+      display: inline-block;
+      margin: 1rem;
+    }
+
+    ul {
+      width: 100%;
+      padding: 2rem;
+      justify-content: space-around;
+
+      li {
+        padding: 0;
+      }
+    }
+  }
+`;
 
 export default Nav;

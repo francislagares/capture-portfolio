@@ -1,12 +1,19 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components/macro';
 
-export const About = styled.div`
+export const About = styled(motion.div)`
   padding: 5rem 10rem;
   color: white;
   min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (max-width: 1300px) {
+    display: block;
+    padding: 2rem 2rem;
+    text-align: center;
+  }
 `;
 
 export const Description = styled.div`
@@ -16,6 +23,13 @@ export const Description = styled.div`
 
   h2 {
     font-weight: lighter;
+  }
+
+  @media screen and (max-width: 1300px) {
+    padding: 0;
+    button: {
+      padding: 2rem 0 5rem 0;
+    }
   }
 `;
 
