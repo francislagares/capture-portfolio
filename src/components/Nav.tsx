@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
 const StyledNav = styled.nav`
+  top: 0;
+  margin: auto;
+  padding: 1rem 10rem;
   min-height: 10vh;
   display: flex;
-  margin: auto;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 10rem;
   background: #282828;
+  position: sticky;
+  z-index: 10;
 
   a {
     color: white;
